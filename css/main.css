@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+body {
+    background: white;
+    color: black;
+    padding: 0;
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+}
+#loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: black;
+    z-index: 999;
+}
+#loader > img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#initial-background {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    z-index: 100;
+}
+#initial-background > #initial-background-title {
+    position: absolute;
+    color: white;
+    font-size: 5vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#initial-background > .arrow-down {
+    width: 170px;
+    height: auto;
+    position: absolute;
+    color: white;
+    top: 97.5%;
+    left: 50%;
+    transform: translate(-50%, -97.5%);
+    opacity: 0;
+    text-align: center;
+}
+.intro-text-wrapper {
+    padding: 72px 30%;
+    text-align: center;
+}
+.intro-text {
+    color: #424242;
+    font-size: 3.5rem;
+}
+.intro-text-location {
+    font-size: 2.8rem;
+    color: #727272;
+}
+.what-i-can-do {
+    width: 100%;
+    text-align: left;
+    color: #727272;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+.emoticon-picker-image {
+    width: 100%;
+}
+.subtitle {
+    font-size: 3.2rem;
+}
+.description {
+    font-size: 1.5rem;
+}
+.projects {
+    color: #727272;
+    background: white;
+    text-align: left;
+    margin-top: 32px;
+}
+#content {
+    pointer-events: auto;
+    visibility: hidden;
+}
+#spacer {
+    height: 80vh;
+}
+.column {
+    padding: 32px;
+}
+.footer {
+    padding-top: 72px;
+    padding-bottom: 72px;
+    background: #f5f5f5;
+    text-align: center;
+}
+.footer > .copyright {
+    font-size: 3rem;
+}
+a {
+    font-weight: 700;
+    text-decoration: none;
+    outline: 0;
+    color: #424242;
+    padding-bottom: 2px;
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+a:hover {
+    color: #fff;
+    background-color: black;
+    padding: 4px;
+}
+hr {
+    width: 10%;
+    text-align: center;
+    margin: 16px auto;
+    border: 2px solid #727272;
+}
+@media (max-width: 550px) {
+	.intro-text-wrapper {
+	    padding: 72px 15%;
+	    text-align: left;
+	}
+
+    .intro-text-wrapper > hr {
+        margin: 14px 0; 
+    }
+
+    .emoticon-picker-item {
+        display: none;
+    }
+}
