@@ -99,8 +99,7 @@ body {
     padding: 32px;
 }
 .footer {
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding: 72px;
     background: #f5f5f5;
     text-align: center;
 }
