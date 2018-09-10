@@ -45,7 +45,7 @@ body {
 }
 #initial-background > .arrow-down {
     width: 120px;
-    height: auto;
+    height: 65px;
     position: absolute;
     color: white;
     top: 97.5%;
