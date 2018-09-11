@@ -3,7 +3,6 @@ var DEBUG = false;
 var lastKeysPressed = [];
 
 var didLoad = false;
-var didScrollFirstTime = false;
 
 var loaderElement = document.getElementById("loader");
 
@@ -13,6 +12,8 @@ var initialBackgroundElement = document.getElementById("initial-background");
 var initialBackgroundText = document.getElementById("initial-background-title");
 
 var initialArrowDownElement = document.querySelector(".arrow-down");
+
+var spacerElement = document.getElementById("spacer");
 
 var initialBackgroundElementHeight = initialBackgroundElement.clientHeight;
 
@@ -57,11 +58,6 @@ function getIntroText() {
     return text;
 }
 
-function onIntroVisibleAgain() {
-    initialBackgroundText.innerHTML = "Hey! It's you again! :)";
-    initialBackgroundElement.style.pointerEvents = "none";
-}
-
 IntroElements = {
     TEXT: 0,
     BACKGROUND: 1,
@@ -75,7 +71,7 @@ function getOpacity(element) {
 
 if (isMobile()) {
     initialBackgroundElement.style.display = "none";
-    document.getElementById("spacer").style.display = "none";
+    spacerElement.style.display = "none";
 
     document.getElementsByClassName("intro-text-wrapper")[0].style.textAlign = "left";
     document.getElementsByClassName("what-i-can-do")[0].style.paddingTop = "32px";
@@ -106,6 +102,13 @@ window.onscroll = function() {
         return;
     }
 
+    if (initialBackgroundElementHeight <= window.scrollY) {
+        initialBackgroundElement.style.display = "none";
+        spacerElement.style.display = "none";
+
+        return;
+    }
+
     initialBackgroundTextOpacity = getOpacity(IntroElements.TEXT);
     initialBackgroundElementOpacity = getOpacity(IntroElements.BACKGROUND);
     initialArrowDownElementOpacity = getOpacity(IntroElements.ARROW);
@@ -114,13 +117,7 @@ window.onscroll = function() {
     initialBackgroundText.style.opacity = initialBackgroundTextOpacity;
     initialArrowDownElement.style.opacity = initialArrowDownElementOpacity;
 
-    if (initialBackgroundElementOpacity > 0 && didScrollFirstTime) {
-        onIntroVisibleAgain();
-    }
-
     if (initialBackgroundElementOpacity <= 0) {
-        didScrollFirstTime = true;
-
         initialBackgroundElement.style.pointerEvents = "none";
     } else {
         initialBackgroundElement.style.pointerEvents = "all";
@@ -334,6 +331,12 @@ var FX = {
                     smoothScroll(dataTarget, dataSpeed || 500);
                 }
 
+                if (toggle.className.includes("arrow-down")) {
+                    setTimeout(function() {
+                        initialBackgroundElement.style.display = "none";
+                        spacerElement.style.display = "none";
+                    }, dataSpeed || 500)
+                }
             }, false);
         });
     }
