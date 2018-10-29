@@ -43,12 +43,12 @@ function getIntroText() {
 
     var div = document.querySelector('.typewriter-wrapper');
     if (div == null) {
-        return "Hey! It's you again! :)";
+        return null;
     }
 
     var divChildren = div.childNodes;
     if (divChildren == null) {
-        return "Hey! It's you again! :)";
+        return null;
     }
 
     for (var i = 0; i < divChildren.length; i++) {
@@ -91,8 +91,7 @@ if (isMobile()) {
 function didFinishTyping() {
     var introText = getIntroText();
 
-    return DEBUG || (introText != null && (introText == "Hello World!" ||
-        introText == "Hey! It's you again! :)"));
+    return DEBUG || (introText != null && (introText == "Hello World!"));
 }
 
 window.onscroll = function() {
