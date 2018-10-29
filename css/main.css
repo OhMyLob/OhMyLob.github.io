@@ -135,6 +135,9 @@ hr {
     margin: 16px auto;
     border: 2px solid #727272;
 }
+ul {
+    list-style-position: outside;
+}
 @media (max-width: 550px) {
 	.intro-text-wrapper {
 	    padding: 72px 15%;
